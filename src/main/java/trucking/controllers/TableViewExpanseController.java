@@ -27,34 +27,32 @@ import java.util.Date;
  * Created by Alex on 24.08.2017.
  */
 public class TableViewExpanseController {
-    @FXML
-    TableView<Expense> tableViewExpense;
 
-    @FXML
-    TableColumn<Expense, Double> columnSumm;
+    @FXML    TableView<Expense> tableViewExpense;
 
-    @FXML
-    TableColumn<Expense, Date> columnDate;
+    @FXML    TableColumn<Expense, Double> columnSumm;
 
-    @FXML
-    TableColumn<Expense, TypeOfExpense> columnType;
+    @FXML    TableColumn<Expense, Date> columnDate;
 
-    @FXML
-    TableColumn<Expense, CircleTrip> columnCircleTrip;
+    @FXML    TableColumn<Expense, TypeOfExpense> columnType;
 
-    @FXML
-    TableColumn<Expense, String> columnDescription;
+    @FXML    TableColumn<Expense, CircleTrip> columnCircleTrip;
 
-    @FXML
-    public void initialize() {
-        ClassPathXmlApplicationContext context = MainAppWithBtm.getContext();
-        ExpenseService expenseService = context.getBean("ExpenseService", ExpenseService.class);
+    @FXML    TableColumn<Expense, String> columnDescription;
+
+    ClassPathXmlApplicationContext context = MainAppWithBtm.getContext();
+
+    ExpenseService expenseService = context.getBean("ExpenseService", ExpenseService.class);
+
+    ObservableList<Expense> expenses = FXCollections.observableList(expenseService.getAll());
+
+    void initializeTableViewExpense(){
         tableViewExpense.setEditable(true);
-
-        ObservableList<Expense> expenses = FXCollections.observableList(expenseService.getAll());
+        expenses = FXCollections.observableList(expenseService.getAll());
         tableViewExpense.setItems(expenses);
+    }
 
-        /* --------------------------------------- column summ --------------------------------------------*/
+    void initializeColumnSumm(){
         columnSumm.setCellValueFactory(new PropertyValueFactory<Expense, Double>("summ"));
         columnSumm.setCellFactory(TextFieldTableCell.<Expense, Double>forTableColumn(new DoubleStringConverter()));
         columnSumm.setOnEditCommit((TableColumn.CellEditEvent<Expense, Double> t) -> {
@@ -62,7 +60,9 @@ public class TableViewExpanseController {
             expense.setSumm(t.getNewValue().doubleValue());
             expenseService.save(expense);
         });
-         /* --------------------------------------- column date --------------------------------------------*/
+    }
+
+    void initializeColumnDate(){
         columnDate.setCellValueFactory(new PropertyValueFactory<Expense, Date>("dateExpense"));
         columnDate.setCellFactory(TextFieldTableCell.<Expense, Date>forTableColumn(new DateStringConverter()));
         columnDate.setOnEditCommit((TableColumn.CellEditEvent<Expense, Date> t) -> {
@@ -70,8 +70,9 @@ public class TableViewExpanseController {
             expense.setDateExpense(t.getNewValue());
             expenseService.save(expense);
         });
+    }
 
-          /* --------------------------------------- column type --------------------------------------------*/
+    void initializeColumnType(){
         TypeOfExpenseService typeOfExpense = context.getBean("TypeOfExpenseService", TypeOfExpenseService.class);
         ObservableList<TypeOfExpense> types = FXCollections.observableArrayList(typeOfExpense.getAll());
         columnType.setCellValueFactory(new PropertyValueFactory<Expense, TypeOfExpense>("typeOfExpense"));
@@ -82,8 +83,9 @@ public class TableViewExpanseController {
             expense.setTypeOfExpense(typeOfExpense1);
             expenseService.save(expense);
         });
+    }
 
-        /* --------------------------------------- column circle trip --------------------------------------------*/
+    void initializeColumnCircleTrip(){
         CircleTripService circleTripService = context.getBean("CircleTripService", CircleTripService.class);
         ObservableList<CircleTrip> drivers = FXCollections.observableArrayList(circleTripService.getAll());
         columnCircleTrip.setCellValueFactory(new PropertyValueFactory<Expense, CircleTrip>("circleTrip"));
@@ -94,8 +96,9 @@ public class TableViewExpanseController {
             expense.setCircleTrip(circleTrip);
             expenseService.save(expense);
         });
+    }
 
-        /* --------------------------------------- column description --------------------------------------------*/
+    void initializeColumnDescripion(){
         columnDescription.setCellValueFactory(new PropertyValueFactory<Expense, String>("description"));
         columnDescription.setCellFactory(TextFieldTableCell.<Expense>forTableColumn());
         columnDescription.setOnEditCommit((TableColumn.CellEditEvent<Expense, String> t) -> {
@@ -103,7 +106,15 @@ public class TableViewExpanseController {
             expense.setDescription(t.getNewValue());
             expenseService.save(expense);
         });
+    }
 
-
+    @FXML
+    public void initialize() {
+        initializeTableViewExpense();
+        initializeColumnSumm();
+        initializeColumnDate();
+        initializeColumnType();
+        initializeColumnCircleTrip();
+        initializeColumnDescripion();
     }
 }

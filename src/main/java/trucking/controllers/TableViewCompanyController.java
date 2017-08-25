@@ -25,16 +25,20 @@ public class TableViewCompanyController {
     TableColumn<Company,String> columnName;
 
     @FXML TableColumn<Company,String> columnAdress;
-    @FXML
-    public void initialize() {
-        ClassPathXmlApplicationContext context = MainAppWithBtm.getContext();
-        CompanyService companyService = context.getBean("CompanyService", CompanyService.class);
+
+    ClassPathXmlApplicationContext context = MainAppWithBtm.getContext();
+
+    CompanyService companyService = context.getBean("CompanyService", CompanyService.class);
+
+    ObservableList<Company> listTrip;
+
+    void initializeTableViewCompany(){
         tableViewCompany.setEditable(true);
-
-        ObservableList<Company> listTrip = FXCollections.observableList(companyService.getAll());
+        listTrip = FXCollections.observableList(companyService.getAll());
         tableViewCompany.setItems(listTrip);
+    }
 
-        /* --------------------------------------- column number --------------------------------------------*/
+    void initializeColumnName(){
         columnName.setCellValueFactory(new PropertyValueFactory<Company, String>("name"));
         columnName.setCellFactory(TextFieldTableCell.<Company>forTableColumn());
         columnName.setOnEditCommit((TableColumn.CellEditEvent<Company, String> t) -> {
@@ -42,8 +46,9 @@ public class TableViewCompanyController {
             company.setName(t.getNewValue());
             companyService.save(company);
         });
+    }
 
-         /* --------------------------------------- column adress --------------------------------------------*/
+    void  initializeColimnAdress(){
         columnAdress.setCellValueFactory(new PropertyValueFactory<Company, String>("adress"));
         columnAdress.setCellFactory(TextFieldTableCell.<Company>forTableColumn());
         columnAdress.setOnEditCommit((TableColumn.CellEditEvent<Company, String> t) -> {
@@ -51,5 +56,12 @@ public class TableViewCompanyController {
             company.setAdress(t.getNewValue());
             companyService.save(company);
         });
+    }
+
+    @FXML
+    public void initialize() {
+        initializeTableViewCompany();
+        initializeColumnName();
+        initializeColimnAdress();
     }
 }
