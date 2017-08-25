@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trucking.controllers.TableViewTripController">
+   <children>
+      <TableView fx:id="tableViewTrip" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="980.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <columns>
+          <TableColumn fx:id="columnCircleTrip" prefWidth="133.0" text="Кругорейс" />
+          <TableColumn fx:id="columnNumberInCirle" prefWidth="56.0" text="№" />
+          <TableColumn fx:id="columnDateBegin" prefWidth="97.0" text="Дата начала" />
+          <TableColumn fx:id="columnDateEnd" prefWidth="104.0" text="Дата окончания" />
+          <TableColumn fx:id="columnKm" prefWidth="88.0" text="Длина(км)" />
+          <TableColumn fx:id="columnFuel" prefWidth="123.0" text="Расход топлива" />
+          <TableColumn fx:id="columnContract" prefWidth="78.0" text="Контракт" />
+          <TableColumn fx:id="columnPlaceLoad" prefWidth="117.0" text="Место загрузки" />
+          <TableColumn fx:id="columnPlaceUnload" prefWidth="124.0" text="Место выгрузки" />
+          <TableColumn fx:id="columnType" prefWidth="59.0" text="Тип" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trucking.controllers.TableViewExpanseController">
+   <children>
+      <TableView fx:id="tableViewExpense" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="columnSumm" prefWidth="144.0" text="Сумма" />
+          <TableColumn fx:id="columnDate" minWidth="6.0" prefWidth="125.0" text="Дата" />
+          <TableColumn fx:id="columnType" minWidth="6.0" prefWidth="125.0" text="Тип" />
+          <TableColumn fx:id="columnCircleTrip" minWidth="6.0" prefWidth="125.0" text="Кругорейс" />
+          <TableColumn fx:id="columnDescription" minWidth="6.0" prefWidth="125.0" text="Комментарии" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

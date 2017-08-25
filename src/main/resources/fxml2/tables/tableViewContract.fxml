@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorContract" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trucking.controllers.TableViewContractController">
+   <children>
+      <TableView fx:id="tableViewContract" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <columns>
+          <TableColumn fx:id="columnNumber" prefWidth="75.0" text="Номер" />
+          <TableColumn fx:id="columnDate" prefWidth="75.0" text="Дата" />
+            <TableColumn fx:id="columnPrice" prefWidth="75.0" text="Цена" />
+            <TableColumn fx:id="columnCargo" prefWidth="85.0" text="Вес груза" />
+            <TableColumn fx:id="columnDriver" prefWidth="121.0" text="Водитель" />
+            <TableColumn fx:id="columnCar" prefWidth="121.0" text="Автомобиль" />
+          <TableColumn fx:id="columnOurCar" prefWidth="121.0" text="Наше авто?" />
+            <TableColumn fx:id="columnCompany" prefWidth="121.0" text="Фирма" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

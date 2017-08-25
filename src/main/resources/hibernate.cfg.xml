@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/trucking2</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">123</property>
+        <property name="show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+
+
+        <mapping class="trucking.entity.Car" />
+        <mapping class="trucking.entity.CircleTrip" />
+        <mapping class="trucking.entity.Driver" />
+        <mapping class="trucking.entity.Company" />
+        <mapping class="trucking.entity.Contract" />
+        <mapping class="trucking.entity.Expense" />
+        <mapping class="trucking.entity.PaymantOfContract" />
+        <mapping class="trucking.entity.TripProfit" />
+        <mapping class="trucking.entity.Trip" />
+        <mapping class="trucking.entity.TypeOfExpense" />
+        <mapping class="trucking.entity.TypeOfPaymant" />
+        <mapping class="trucking.entity.TypeOfTrip" />
+
+    </session-factory>
+</hibernate-configuration>

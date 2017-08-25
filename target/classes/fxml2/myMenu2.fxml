@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox minWidth="-Infinity" prefHeight="40.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trucking.MyMenu2Controller">
+   <children>
+      <Button fx:id="btm1" mnemonicParsing="false" onAction="#swithOnePane" prefHeight="31.0" prefWidth="149.0" text="основные" />
+      <Button fx:id="btm2" mnemonicParsing="false" onAction="#switchTwoPane" text="Дополнительные" />
+   </children>
+</HBox>
