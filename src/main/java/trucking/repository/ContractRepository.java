@@ -19,4 +19,9 @@ public interface ContractRepository extends JpaRepository<Contract,Long> {
     List<String > getAllContractWithoutTrip();
 
     Contract findByNumberContract(String number);
+
+    @Query(value = "SELECT numberContract FROM contract",nativeQuery = true)
+    List<String> getAllNumbersOfContracts();
+
+
 }

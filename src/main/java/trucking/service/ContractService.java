@@ -32,6 +32,10 @@ public class ContractService implements IContractService {
         return contractRepository.getAllContractWithoutTrip();
     }
 
+    public List<String> getAllNumbersOfContracts(){
+        return contractRepository.getAllNumbersOfContracts();
+    }
+
     public void delete(Contract contract) {
         contractRepository.delete(contract);
     }

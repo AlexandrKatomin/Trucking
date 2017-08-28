@@ -39,4 +39,6 @@ public class PaymantOfContractService implements IPaymantOfContractService {
     public void delete(long id) {
         paymantOfContractRepository.delete(id);
     }
+
+
 }

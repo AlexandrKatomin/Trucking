@@ -24,7 +24,7 @@ public class TypeOfPaymant extends BaseEntity {
     @Column(name = "numberAccount")
     String numberAccount;
 
-    @OneToMany(mappedBy = "typeOfPaymant",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "typeOfPaymant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     List<PaymantOfContract> paymantOfContractList;
 
     public TypeOfPaymant() {
@@ -37,10 +37,6 @@ public class TypeOfPaymant extends BaseEntity {
 
     @Override
     public String toString() {
-        return "TypeOfPaymant{" +
-                "id=" + id +
-                ", type='" + type + '\'' +
-                ", numberAccount='" + numberAccount + '\'' +
-                '}';
+        return type;
     }
 }
